@@ -1,11 +1,16 @@
 package es.keensoft.ghc2019.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Photo {
 	private int id;
 	private Orientation orientation;
-	private Set<String> tags;
+	private Set<String> tags = new HashSet<String>();
+
+	public Photo(String[] lineContent) {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Orientation getOrientation() {
 		return orientation;
