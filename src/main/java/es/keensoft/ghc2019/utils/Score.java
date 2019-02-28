@@ -18,4 +18,14 @@ public class Score {
         return result;
     }
 
+    public int calculateMinTags(Slide slide1, Slide slide2) {
+        int result = 0;
+        Set<String> tags1 = slide1.getTags();
+        for (Iterator<String> it = tags1.iterator(); it.hasNext(); ) {
+            String tag = it.next();
+            result = slide2.getTags().contains(tag) ? result : result++;
+        }
+        return result;
+    }
+
 }
