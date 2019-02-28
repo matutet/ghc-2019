@@ -11,9 +11,10 @@ public class AlgV1 implements Algorithm {
 
     private Score score = new Score();
 
+    private int totalScore = 0;
+
     public Slideshow doit(List<Photo> photos) {
         final Slideshow slideshow = new Slideshow();
-        int totalScore = 0;
 
         Slide slide1 = new Slide();
         Slide slide2 = new Slide();
@@ -26,13 +27,13 @@ public class AlgV1 implements Algorithm {
                 if (slide1.canBeAdded(photo)) {
                     slide1.addPhoto(photo);
                 } else {
-                    System.out.println("!!!! photo discarded: " + photo.getId() + ", " + photo.getTags());
+                    //System.out.println("!!!! photo discarded: " + photo.getId() + ", " + photo.getTags());
                 }
             } else if (!slide2.isFull()) {
                 if (slide2.canBeAdded(photo)) {
                     slide2.addPhoto(photo);
                 } else {
-                    System.out.println("!!!! photo discarded: " + photo.getId() + ", " + photo.getTags());
+                    //System.out.println("!!!! photo discarded: " + photo.getId() + ", " + photo.getTags());
                 }
             }
 
@@ -55,6 +56,10 @@ public class AlgV1 implements Algorithm {
         System.out.println("Total score: " + totalScore);
 
         return slideshow;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
     }
 
     private int scoreSlides(Slide slide1, Slide slide2) {

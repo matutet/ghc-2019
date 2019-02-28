@@ -12,7 +12,8 @@ import es.keensoft.ghc2019.model.Slideshow;
 import es.keensoft.ghc2019.reader.FileReader;
 
 public class FullLauncher {
-	private static final String OUT = "out/V1";
+	private static final String OUT = "/tmp/V1";
+	private static final String INPUT = "/Users/matutet/wrkspc/hashcode2019/src/main/resources/";
 
 	public static void main(String[] args) {
 		try {
@@ -21,21 +22,26 @@ public class FullLauncher {
 				deleteDir(dir);
 			dir.mkdirs();
 
-			doIt("src/main/resources/a_example.txt", OUT + "/a_example.txt");
-			doIt("src/main/resources/b_lovely_landscapes.txt", OUT + "/b_lovely_landscapes.txt");
-			doIt("src/main/resources/c_memorable_moments.txt", OUT + "/c_memorable_moments.txt");
-			doIt("src/main/resources/d_pet_pictures.txt", OUT + "/d_pet_pictures.txt");
-			doIt("src/main/resources/e_shiny_selfies.txt", OUT + "/e_shiny_selfies.txt");
+			int superScore = 0;
+
+			superScore += doIt(INPUT + "/a_example.txt", OUT + "/a_example.txt");
+			superScore += doIt(INPUT + "/b_lovely_landscapes.txt", OUT + "/b_lovely_landscapes.txt");
+			superScore += doIt(INPUT + "/c_memorable_moments.txt", OUT + "/c_memorable_moments.txt");
+			superScore += doIt(INPUT + "/d_pet_pictures.txt", OUT + "/d_pet_pictures.txt");
+			superScore += doIt(INPUT + "/e_shiny_selfies.txt", OUT + "/e_shiny_selfies.txt");
+
+			System.out.println("Algorithim score: " + superScore);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private static void doIt(String in, String out) throws IOException {
+	private static int doIt(String in, String out) throws IOException {
 		Algorithm alg = new AlgV1();
 		List<Photo> photoList = FileReader.readFile(in);
 		Slideshow slideshow = alg.doit(photoList);
 		FileWriterGHC.writeFile(out, slideshow);
+		return alg.getTotalScore();
 	}
 	
 	private static void deleteDir(File file) {

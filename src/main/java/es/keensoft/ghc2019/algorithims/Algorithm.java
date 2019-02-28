@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface Algorithm {
     Slideshow doit(List<Photo> photos);
+    int getTotalScore();
 }
