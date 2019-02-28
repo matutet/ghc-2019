@@ -21,11 +21,20 @@ public class FileWriterGHC {
         Set<Slide> slides = slideshow.getSlides();
         for (Iterator<Slide> it = slides.iterator(); it.hasNext(); ) {
             Slide slide = it.next();
-            writer.write(slide.toString());
+            writer.write(lineOf(slide));
             writer.newLine();
         }
         
         writer.close();
+    }
+
+    public static String lineOf(Slide slide) {
+
+        String line = Integer.toString(slide.photo1.getId());
+        if (slide.photo2 != null) {
+            line = line + " " + slide.photo2.getId();
+        }
+        return line;
     }
 
 }

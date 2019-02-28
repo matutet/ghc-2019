@@ -5,8 +5,8 @@ import java.util.Set;
 
 public class Slide {
 
-    private Photo photo1;
-    private Photo photo2;
+    public Photo photo1;
+    public Photo photo2;
     private Set<String> tags = new HashSet<String>();
 
     public Slide() {
@@ -83,10 +83,12 @@ public class Slide {
 
     @Override
     public String toString() {
-        String line = Integer.toString(photo1.getId());
+        String line = "Slide[" + photo1.getId();
         if (photo2 != null) {
-            line = line + " " + photo2.getId();
+            line = line + ", " + photo2.getId();
         }
+
+        line += "] " + tags;
         return line;
     }
 }
