@@ -5,6 +5,7 @@ import es.keensoft.ghc2019.model.Slide;
 import es.keensoft.ghc2019.model.Slideshow;
 import es.keensoft.ghc2019.utils.Score;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class AlgV1 implements Algorithm {
@@ -22,7 +23,8 @@ public class AlgV1 implements Algorithm {
         boolean firstSlide = true;
 
         System.out.println("There are " + photos.size() + " photos");
-        for (Photo photo : photos) {
+        for (Iterator<Photo> iterator = getIterator(photos); iterator.hasNext(); ) {
+            Photo photo = iterator.next();
             if (!slide1.isFull()) {
                 if (slide1.canBeAdded(photo)) {
                     slide1.addPhoto(photo);
@@ -56,6 +58,10 @@ public class AlgV1 implements Algorithm {
         System.out.println("Total score: " + totalScore);
 
         return slideshow;
+    }
+
+    protected Iterator<Photo> getIterator(List<Photo> photos) {
+        return photos.iterator();
     }
 
     public int getTotalScore() {
