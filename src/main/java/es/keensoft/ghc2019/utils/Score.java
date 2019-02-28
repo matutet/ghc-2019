@@ -36,19 +36,25 @@ public class Score {
         Set<String> tags2 = slide2.getTags();
         for (Iterator<String> it = tags1.iterator(); it.hasNext(); ) {
             String tag = it.next();
-            boolean contains = slide2.getTags().contains(tag);
-            result = contains ? result++ : result;
-            nonCommonTags1 = contains ? nonCommonTags1 : nonCommonTags1++;
+            if (tags2.contains(tag)){
+                result++;
+            } else {
+                nonCommonTags1++;
+            }
         }
 
         for (Iterator<String> it = tags2.iterator(); it.hasNext(); ) {
             String tag = it.next();
-            boolean contains = slide2.getTags().contains(tag);
-            nonCommonTags2 = contains ? nonCommonTags2 : nonCommonTags2++;
+            if (!tags1.contains(tag)){
+                nonCommonTags2++;
+            }
         }
-
-        result = result < nonCommonTags1 ? result : nonCommonTags1;
-        result = result < nonCommonTags2 ? result : nonCommonTags2;
+        if (result > nonCommonTags1){
+            result = nonCommonTags1;
+        }
+        if (result > nonCommonTags2) {
+            result = nonCommonTags2;
+        }
 
         return result;
     }
