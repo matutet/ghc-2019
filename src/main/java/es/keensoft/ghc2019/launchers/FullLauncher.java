@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import es.keensoft.ghc2019.FileWriterGHC;
-import es.keensoft.ghc2019.algorithims.AlgV1;
+import es.keensoft.ghc2019.algorithims.AlgV2;
 import es.keensoft.ghc2019.algorithims.Algorithm;
 import es.keensoft.ghc2019.model.Photo;
 import es.keensoft.ghc2019.model.Slideshow;
@@ -37,7 +37,7 @@ public class FullLauncher {
 	}
 
 	private static int doIt(String in, String out) throws IOException {
-		Algorithm alg = new AlgV1();
+		Algorithm alg = new AlgV2();
 		List<Photo> photoList = FileReader.readFile(in);
 		Slideshow slideshow = alg.doit(photoList);
 		FileWriterGHC.writeFile(out, slideshow);
