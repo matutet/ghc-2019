@@ -9,15 +9,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
-/**
- * Project: hashcode2019
- * Author: victorrillo
- * Date: 2019-02-28 19:32
- * Comment:
- **/
 public class FileWriterGHC {
-
-    private BufferedWriter writer;
 
     private void writeFile(String path, Slideshow slideshow) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(path));
@@ -28,7 +20,7 @@ public class FileWriterGHC {
             Slide slide = it.next();
             writer.write(slide.toString());
         }
-
+        writer.close();
     }
 
 }
