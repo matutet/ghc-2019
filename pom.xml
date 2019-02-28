@@ -15,6 +15,11 @@
 	
 	<name>keensoft UST Global Master team - Google Hash code 2019</name>
 
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
 	<build>
 		<plugins>
 			<plugin>

@@ -4,11 +4,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Photo {
-	private long id;
+	private int id;
 	private Orientation orientation;
 	private Set<String> tags = new HashSet<String>();
 
-	public Photo(long id, String[] lineContent) {
+	public Photo(int id, String[] lineContent) {
 		this.id = id;
 		this.orientation = Orientation.valueOf(lineContent[0]);
 		int tagsNumber = Integer.parseInt(lineContent[1]);
@@ -36,11 +36,11 @@ public class Photo {
 		this.tags = tags;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -14,12 +14,12 @@ public class FileReader {
 		System.out.println("Reading file '" + path + "'...");
 
 		Scanner scanner = new Scanner(new File(path));
-		long lineNumber = 0;
-		long expectedNumber = 0;
+		int lineNumber = 0;
+		int expectedNumber = 0;
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
 			if (lineNumber == 0) {
-				expectedNumber = Long.parseLong(line);
+				expectedNumber = Integer.parseInt(line);
 				System.out.println("Expected " + expectedNumber + " photos...");
 			} else {
 				String[] lineContent = line.split(" ");
