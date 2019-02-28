@@ -11,15 +11,20 @@ import java.util.Set;
 
 public class FileWriterGHC {
 
-    public static void writeFile(String path, Slideshow slideshow) throws IOException {
+    public static void writeFile(String path, Slideshow slideshow) throws IOException {   	
         BufferedWriter writer = new BufferedWriter(new FileWriter(path));
-        Set<Slide> slides = slideshow.getSlides();
+        
         int size = slideshow.getSlides().size();
         writer.write(size);
+        writer.newLine();
+        
+        Set<Slide> slides = slideshow.getSlides();
         for (Iterator<Slide> it = slides.iterator(); it.hasNext(); ) {
             Slide slide = it.next();
             writer.write(slide.toString());
+            writer.newLine();
         }
+        
         writer.close();
     }
 

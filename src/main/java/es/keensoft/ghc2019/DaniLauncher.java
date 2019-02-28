@@ -2,6 +2,7 @@ package es.keensoft.ghc2019;
 
 import java.util.List;
 
+import es.keensoft.ghc2019.algorithims.AlgV1;
 import es.keensoft.ghc2019.algorithims.Algorithm;
 import es.keensoft.ghc2019.model.Photo;
 import es.keensoft.ghc2019.model.Slideshow;
@@ -12,9 +13,9 @@ public class DaniLauncher {
 		try {
 			String path = "src/main/resources/a_example.txt";
 			String out = "out/a_example.txt";
-			
+
 			List<Photo> photoList = FileReader.readFile(path);
-			Algorithm alg = null;
+			Algorithm alg = new AlgV1();
 			Slideshow slideshow = alg.doit(photoList);
 			FileWriterGHC.writeFile(out, slideshow);
 		} catch (Exception e) {
