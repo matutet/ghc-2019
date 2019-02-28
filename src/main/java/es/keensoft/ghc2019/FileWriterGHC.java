@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class FileWriterGHC {
 
-    private void writeFile(String path, Slideshow slideshow) throws IOException {
+    public static void writeFile(String path, Slideshow slideshow) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(path));
         Set<Slide> slides = slideshow.getSlides();
         int size = slideshow.getSlides().size();

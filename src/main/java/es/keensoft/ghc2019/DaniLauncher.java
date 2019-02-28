@@ -1,17 +1,22 @@
 package es.keensoft.ghc2019;
 
+import java.util.List;
+
+import es.keensoft.ghc2019.algorithims.Algorithm;
+import es.keensoft.ghc2019.model.Photo;
+import es.keensoft.ghc2019.model.Slideshow;
 import es.keensoft.ghc2019.reader.FileReader;
 
 public class DaniLauncher {
 	public static void main(String[] args) {
 		try {
-//			String path = "src/main/resources/a_example.txt";
-//			String path = "src/main/resources/b_lovely_landscapes.txt";
-//			String path = "src/main/resources/c_memorable_moments.txt";
-//			String path = "src/main/resources/d_pet_pictures.txt";			
-			String path = "src/main/resources/e_shiny_selfies.txt";
+			String path = "src/main/resources/a_example.txt";
+			String out = "out/a_example.txt";
 			
-			FileReader.readFile(path);
+			List<Photo> photoList = FileReader.readFile(path);
+			Algorithm alg = null;
+			Slideshow slideshow = alg.doit(photoList);
+			FileWriterGHC.writeFile(out, slideshow);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
