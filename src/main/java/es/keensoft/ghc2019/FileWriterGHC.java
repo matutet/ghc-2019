@@ -15,7 +15,7 @@ public class FileWriterGHC {
         BufferedWriter writer = new BufferedWriter(new FileWriter(path));
         
         int size = slideshow.getSlides().size();
-        writer.write(size);
+        writer.write(Integer.toString(size));
         writer.newLine();
         
         Set<Slide> slides = slideshow.getSlides();
