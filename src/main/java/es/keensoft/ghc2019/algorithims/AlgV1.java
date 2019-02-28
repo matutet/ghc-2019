@@ -3,12 +3,13 @@ package es.keensoft.ghc2019.algorithims;
 import es.keensoft.ghc2019.model.Photo;
 import es.keensoft.ghc2019.model.Slide;
 import es.keensoft.ghc2019.model.Slideshow;
+import es.keensoft.ghc2019.utils.Score;
 
 import java.util.List;
 
 public class AlgV1 implements Algorithm {
 
-    private List<Photo> bufferOfVerticalPhotos;
+    private Score score = new Score();
 
     public Slideshow doit(List<Photo> photos) {
         final Slideshow slideshow = new Slideshow();
@@ -16,9 +17,6 @@ public class AlgV1 implements Algorithm {
 
         Slide slide1 = new Slide();
         Slide slide2 = new Slide();
-
-        Photo photo1;
-        Photo photo2;
 
         boolean firstSlide = true;
 
@@ -46,10 +44,12 @@ public class AlgV1 implements Algorithm {
             }
         }
 
+        System.out.println("Total score: " + totalScore);
+
         return slideshow;
     }
 
     private int scoreSlides(Slide slide1, Slide slide2) {
-        return 0;
+        return score.getResult(slide1, slide2);
     }
 }
