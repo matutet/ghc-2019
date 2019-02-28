@@ -3,6 +3,7 @@ package es.keensoft.ghc2019.model;
 import java.util.Set;
 
 public class Photo {
+	private int id;
 	private Orientation orientation;
 	private Set<String> tags;
 
@@ -20,6 +21,14 @@ public class Photo {
 
 	public void setTags(Set<String> tags) {
 		this.tags = tags;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override

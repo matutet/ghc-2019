@@ -4,6 +4,7 @@ import java.util.Set;
 
 public class Slide {
 
+	private Set<id> ids;
 	private Set<Photo> photos;
 	private Set<String> tags;
 
@@ -22,5 +23,13 @@ public class Slide {
 
 	public void setTags(Set<String> tags) {
 		this.tags = tags;
+	}
+
+	public Set<id> getIds() {
+		return ids;
+	}
+
+	public void setIds(Set<id> ids) {
+		this.ids = ids;
 	}
 }
