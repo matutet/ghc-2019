@@ -8,15 +8,24 @@ import java.util.Set;
 
 public class Score {
 
-    public int calculateMinTags(Slide slide) {
+    public int calculateCommonTags(Slide slide1, Slide slide2) {
         int result = 0;
-        Set<Photo> photos = slide.getPhotos();
-        for (Iterator<Photo> it = photos.iterator(); it.hasNext(); ) {
-            Photo foto = it.next();
-            result = foto.getTags().size() > result ? foto.getTags().size(): result;
+        Set<String> tags1 = slide1.getTags();
+        for (Iterator<String> it = tags1.iterator(); it.hasNext(); ) {
+            String tag = it.next();
+            result = slide2.getTags().contains(tag) ? result++ : result;
         }
         return result;
     }
 
+    public int calculateMinTags(Slide slide1, Slide slide2) {
+        int result = 0;
+        Set<String> tags1 = slide1.getTags();
+        for (Iterator<String> it = tags1.iterator(); it.hasNext(); ) {
+            String tag = it.next();
+            result = slide2.getTags().contains(tag) ? result : result++;
+        }
+        return result;
+    }
 
 }
