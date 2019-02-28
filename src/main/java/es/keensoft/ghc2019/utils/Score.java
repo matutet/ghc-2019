@@ -28,4 +28,29 @@ public class Score {
         return result;
     }
 
+    public int getResult(Slide slide1, Slide slide2) {
+        int result = 0;
+        int nonCommonTags1 = 0;
+        int nonCommonTags2 = 0;
+        Set<String> tags1 = slide1.getTags();
+        Set<String> tags2 = slide2.getTags();
+        for (Iterator<String> it = tags1.iterator(); it.hasNext(); ) {
+            String tag = it.next();
+            boolean contains = slide2.getTags().contains(tag);
+            result = contains ? result++ : result;
+            nonCommonTags1 = contains ? nonCommonTags1 : nonCommonTags1++;
+        }
+
+        for (Iterator<String> it = tags2.iterator(); it.hasNext(); ) {
+            String tag = it.next();
+            boolean contains = slide2.getTags().contains(tag);
+            nonCommonTags2 = contains ? nonCommonTags2 : nonCommonTags2++;
+        }
+
+        result = result < nonCommonTags1 ? result : nonCommonTags1;
+        result = result < nonCommonTags2 ? result : nonCommonTags2;
+
+        return result;
+    }
+
 }
