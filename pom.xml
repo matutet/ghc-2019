@@ -3,6 +3,14 @@
         <groupId>es.keensoft</groupId>
         <artifactId>google-hash-2019</artifactId>
 		<version>1.0-SNAPSHOT</version>
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<modelVersion>4.0.0</modelVersion>
 	
 	<name>keensoft UST Global Master team - Google Hash code 2019</name>
