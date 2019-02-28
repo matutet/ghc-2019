@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <groupId>es.keensoft</groupId>
+        <artifactId>google-hash-2019</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	<modelVersion>4.0.0</modelVersion>
+	
+	<name>keensoft UST Global Master team - Google Hash code 2019</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<configuration>
+					<extraJvmArguments>-Xms40m -Xmx512m</extraJvmArguments>
+					<programs>
+						<program>
+							<mainClass>es.keensoft.ghc2019.DoIt</mainClass>
+							<name>gch2019</name>
+							<jvmSettings>
+								<extraArguments>
+									<extraArgument>-Dhazelcast.logging.type=slf4j</extraArgument>
+								</extraArguments>
+							</jvmSettings>
+						</program>
+					</programs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>package</id>
+						<goals>
+							<goal>assemble</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
