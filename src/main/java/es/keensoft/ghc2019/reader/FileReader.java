@@ -20,12 +20,12 @@ public class FileReader {
 			String line = scanner.nextLine();
 			if (lineNumber == 0) {
 				expectedNumber = Integer.parseInt(line);
-				System.out.println("Expected " + expectedNumber + " photos...");
+				//System.out.println("Expected " + expectedNumber + " photos...");
 			} else {
 				String[] lineContent = line.split(" ");
 				Photo photo = new Photo(lineNumber -1, lineContent);
 				photos.add(photo);
-				System.out.println("\tAdded: " + photo);
+				//System.out.println("\tAdded: " + photo);
 			}
 			lineNumber++;
 		}

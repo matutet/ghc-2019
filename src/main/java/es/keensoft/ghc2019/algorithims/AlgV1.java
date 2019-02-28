@@ -46,6 +46,7 @@ public class AlgV1 implements Algorithm {
                     slideshow.getSlides().add(slide2);
 
                     slide1 = slide2;
+                    totalScore += score;
                 }
                 slide2 = new Slide();
             }
@@ -58,7 +59,7 @@ public class AlgV1 implements Algorithm {
 
     private int scoreSlides(Slide slide1, Slide slide2) {
         final int result = score.getResult(slide1, slide2);
-        System.out.println("Score " + result + ": " + slide1 + " vs " + slide2);
+        //System.out.println("Score: " + result + " for " + slide1 + " vs " + slide2);
         return result;
     }
 }
