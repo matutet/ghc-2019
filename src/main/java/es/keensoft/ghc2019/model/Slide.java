@@ -36,6 +36,41 @@ public class Slide {
         tags.addAll(photo.getTags());
     }
 
+    public boolean isFull() {
+        if ((photo1 == null) && (photo2 == null)) {
+            return false;
+        }
+
+        if ((photo1 != null) && (photo1.getOrientation().equals(Orientation.H))) {
+            return true;
+        }
+
+        if ((photo2 == null)) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean canBeAdded(Photo photo) {
+        if ((photo1 == null)) {
+            return true;
+        }
+
+        if (photo1.getOrientation().equals(Orientation.H)) {
+            return false;
+        }
+
+        if (photo2 != null) {
+            return false;
+        }
+
+        if (photo.getOrientation().equals(Orientation.H)) {
+            return false;
+        }
+
+        return  true;
+    }
+
     public void clear() {
         photo1 = null;
         photo2 = null;
